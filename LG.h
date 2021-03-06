@@ -1,7 +1,10 @@
 #ifndef LG_H
 #define LG_H
 
-  #include <cstdint>
+  #include <Arduino.h>
+  
+  #include <IRremoteESP8266.h>
+  #include <IRsend.h>
   
   uint16_t getLGLength();
   

@@ -1,6 +1,6 @@
 #include "LocalSecureServer.h"
 
-LocalSecureServer::LocalSecureServer(std::queue<String>* eventqueue) : server(443) {
+LocalSecureServer::LocalSecureServer(std::queue<Event*>* eventqueue) : server(443) {
   this->eventqueue = eventqueue;
 }
 
@@ -14,7 +14,16 @@ void LocalSecureServer::startServer() {
 
   server.on("/trigger/", [this](){
     String button = server.arg("value");
-    this->eventqueue->push(button);
+    this->eventqueue->push(new Event(button));
+    server.sendHeader("Location", String(REDIRECT_URL), true);
+    server.send(301, "text/plain", "");
+  });
+
+  
+  server.on("/makro/", [this](){
+    String button = server.arg("value");
+    String modifier = server.arg("modifier");
+    this->eventqueue->push(new Event(button, modifier));
     server.sendHeader("Location", String(REDIRECT_URL), true);
     server.send(301, "text/plain", "");
   });

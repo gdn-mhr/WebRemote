@@ -1,6 +1,6 @@
 #include "WebRemote.h"
 
-std::queue<String> eventqueue;
+std::queue<Event*> eventqueue;
 LocalSecureServer server(&eventqueue);
 LGRemote remote (&eventqueue);
 
@@ -10,6 +10,7 @@ void setup() {
  
   connectToWiFi();
   server.startServer();
+  remote.startRemote();
 }
 
 void loop() {

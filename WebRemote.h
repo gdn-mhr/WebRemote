@@ -4,6 +4,7 @@
   #include <Arduino.h>
   
   #include <queue>
+  #include "Event.h"
   
   #include "LG.h"
   #include "LocalSecureServer.h"

@@ -5,16 +5,17 @@
 	#include <ESP8266WebServerSecure.h>
 	#include <Arduino.h>
   #include <queue>
+  #include "Event.h"
   
   #include "WebRemoteConfig.h"
 
   class LocalSecureServer {
     private:
       BearSSL::ESP8266WebServerSecure server;
-      std::queue<String>* eventqueue;
+      std::queue<Event*>* eventqueue;
     public:
       LocalSecureServer(){}
-      LocalSecureServer(std::queue<String>* eventqueue);
+      LocalSecureServer(std::queue<Event*>* eventqueue);
       void startServer();
       void handleRequest();
   };
