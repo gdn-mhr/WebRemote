@@ -28,10 +28,7 @@
   #define STATIC_IP (192, 168, XXX, XXX) //TODO: SET PREFERRED IP ADDRESS 
   #define GATEWAY (192, 168, XXX, XXX) //TODO: SET LOCAL GATEWAY
   #define SUBNET_MASK (255, 255, 255, 0)
-    #define DNS_PORT 53
   
-  #define WEBREMOTE_DOMAIN "webremote.example.com"
-  #define HTTPS_REDIRECT "https://webremote.example.com"
   #define REDIRECT_URL "https://example.com/webinterface.html"
 
 #endif
